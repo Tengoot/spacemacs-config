@@ -502,6 +502,7 @@ This function is called only while dumping Spacemacs configuration. You can
 dump."
   (require 'kaolin-themes)
   (require 'doom-themes)
+  (require 'zone)
   )
 
 (defun dotspacemacs/user-config ()
@@ -510,6 +511,7 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (zone-when-idle 120)
   (setq multi-term-program "/usr/bin/zsh")
   (setq-default fill-column 100)
   (setq-default fill-column-indicator t)
