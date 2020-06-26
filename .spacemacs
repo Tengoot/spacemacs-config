@@ -57,7 +57,6 @@ This function should only modify configuration layer settings."
      kotlin
      dart
      helm
-     auto-completion
      emacs-lisp
      git
      markdown
@@ -83,6 +82,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '(
                                       kaolin-themes
                                       doom-themes
+                                      centaur-tabs
                                       )
 
    ;; A list of packages that cannot be updated.
@@ -231,7 +231,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(doom)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -503,6 +503,7 @@ dump."
   (require 'kaolin-themes)
   (require 'doom-themes)
   (require 'zone)
+  (require 'centaur-tabs)
   )
 
 (defun dotspacemacs/user-config ()
@@ -511,13 +512,29 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (zone-when-idle 120)
+  (zone-when-idle 180)
   (setq multi-term-program "/usr/bin/zsh")
   (setq-default fill-column 100)
   (setq-default fill-column-indicator t)
   (setq neo-theme 'icons)
   (setq-default js2-basic-offset 2)
   (add-hook 'php-mode-hook 'php-enable-wordpress-coding-style)
+  (setq doom-modeline-height 35)
+  (setq doom-modeline-project-detection 'project)
+  (setq doom-modeline-major-mode-icon f)
+  (setq doom-modeline-major-mode-color-icon f)
+  (setq doom-modeline-buffer-state-icon f)
+  (setq doom-modeline-buffer-modification-icon f)
+  (setq doom-modeline-persp-icon f)
+  (setq centaur-tabs-style "bar"
+        centaur-tabs-height 30
+        centaur-tabs-set-icons t
+        centaur-tabs-set-modified-marker t
+        centaur-tabs-show-navigation-buttons t
+        centaur-tabs-set-bar 'under
+        x-underline-at-descent-line t
+        centaur-tabs--buffer-show-groups t)
+  (centaur-tabs-mode t)
   (setq-default
    js2-basic-offset 2
    css-indent-offset 2
