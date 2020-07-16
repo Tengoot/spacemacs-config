@@ -532,8 +532,7 @@ before packages are loaded."
         centaur-tabs-set-modified-marker t
         centaur-tabs-show-navigation-buttons t
         centaur-tabs-set-bar 'under
-        x-underline-at-descent-line t
-        centaur-tabs--buffer-show-groups t)
+        x-underline-at-descent-line t)
   (centaur-tabs-mode t)
   (setq-default
    js2-basic-offset 2
@@ -550,4 +549,3 @@ before packages are loaded."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-)
