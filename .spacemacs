@@ -240,7 +240,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("JetBrains Mono"
-                               :size 14.0
+                               :size 12.0
                                :weight normal
                                :width normal)
 
