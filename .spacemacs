@@ -51,7 +51,7 @@ This function should only modify configuration layer settings."
              ranger-cleanup-on-disable t
              ranger-ignored-extensions '("mkv" "flv" "iso" "mp4"))
      python
-     javascript
+     (javascript :variables js2-mode-show-strict-warnings nil)
      react
      go
      kotlin
@@ -60,7 +60,8 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      markdown
-     org
+     (org :variables
+          org-enable-org-journal-support t)
      docker
      (shell :variables
             shell-default-shell 'eshell
@@ -220,7 +221,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(kaolin-temple
+   dotspacemacs-themes '(doom-laserwave
                          spacemacs-dark
                          spacemacs-light)
 
@@ -239,7 +240,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("JetBrains Mono"
-                               :size 12.0
+                               :size 16.0
                                :weight normal
                                :width normal)
 
@@ -546,6 +547,29 @@ before packages are loaded."
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
   )
+  (with-eval-after-load 'org
+    (setq org-todo-keywords '((sequence "TODO" "DOING" "DONE")))
+    )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(evil-want-Y-yank-to-eol nil)
+ '(package-selected-packages
+   '(org-journal yasnippet-snippets yapfify yaml-mode xterm-color web-mode web-beautify vterm terminal-here tagedit sql-indent sphinx-doc smeargle slim-mode shell-pop seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocopfmt rubocop rspec-mode robe rjsx-mode rbenv ranger pytest pyenv-mode py-isort pug-mode projectile-rails rake inflections prettier-js poetry pippel pipenv pyvenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets orgit-forge orgit org-rich-yank org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download org-contrib org org-cliplink npm-mode nose nodejs-repl neotree multi-term mmm-mode minitest markdown-toc lsp-ui lsp-python-ms lsp-pyright lsp-origami origami lsp-dart dap-mode lsp-treemacs bui livid-mode skewer-mode live-py-mode kotlin-mode kaolin-themes autothemer json-navigator hierarchy js2-refactor multiple-cursors js2-mode js-doc importmagic epc ctable concurrent deferred impatient-mode simple-httpd htmlize helm-pydoc helm-org-rifle helm-lsp lsp-mode helm-gitignore helm-git-grep helm-css-scss helm-company helm-c-yasnippet haml-mode grip-mode godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gnuplot gitignore-templates gitignore-mode github-search github-clone gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ fringe-helper git-gutter+ gist gh marshal logito pcache gh-md geben fuzzy forge yaml markdown-mode magit ghub closql emacsql-sqlite emacsql treepy magit-section git-commit with-editor flycheck-pos-tip pos-tip flycheck-kotlin flutter feature-mode evil-org eshell-z eshell-prompt-extras esh-help enh-ruby-mode emmet-mode drupal-mode doom-themes doom-modeline shrink-path dockerfile-mode docker transient tablist json-mode docker-tramp json-snatcher json-reformat dart-mode cython-mode csv-mode company-web web-completion-data company-phpactor phpactor composer php-runtime company-php ac-php-core xcscope php-mode company-go go-mode company-anaconda company chruby centaur-tabs bundler inf-ruby browse-at-remote blacken auto-yasnippet yasnippet anaconda-mode pythonic ac-ispell auto-complete ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection string-edit spaceline-all-the-icons restart-emacs request rainbow-delimiters quickrun popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless multi-line macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag google-translate golden-ratio font-lock+ flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav editorconfig dumb-jump drag-stuff dotenv-mode dired-quick-sort diminish define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)
